@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Black – White Coffee Magazine</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+    }
+    .serif { font-family: 'Playfair Display', serif; }
+    .drop-cap::first-letter {
+      font-size: 4rem;
+      font-weight: 700;
+      float: left;
+      line-height: 1;
+      margin: 0.1em 0.1em 0 0;
+      color: #fff;
+    }
+    .magazine-hero {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.8) 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+  <!-- Magazine Header -->
+  <header class="bg-black border-b border-gray-700 fixed w-full top-0 z-20">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center">
+        <img src="logo.webp" alt="Black – White Coffee Logo" class="h-12 w-auto mr-3 drop-shadow-lg">
+        <div>
+          <div class="font-bold text-xl tracking-tight text-white serif">ᜁᜆᜒᜋ᜔ & ᜉᜓᜆᜒ</div>
+          <div class="text-xs text-gray-400 uppercase tracking-wider">Coffrew</div>
+        </div>
+      </a>
+      <nav class="space-x-6 text-sm hidden md:flex">
+        <a href="index.html" class="text-white hover:text-gray-300 font-medium">Home</a>
+        <a href="menu.html" class="text-white hover:text-gray-300">Menu</a>
+        <a href="game.html" class="text-white hover:text-gray-300">Experience</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Magazine Hero Spread -->
+  <main class="pt-28 pb-16 px-6">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Hero Feature -->
+      <section class="magazine-hero rounded-2xl p-12 mb-16 text-center shadow-2xl">
+        <h1 class="serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          The Art of<br>
+          <span class="text-white">Black & White</span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8 italic">
+          Where every drop tells a story of balance, intensity, and perfection.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="menu.html" class="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transition-all duration-300 shadow-xl">
+            Explore Menu
+          </a>
+          <a href="game.html" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-black transition-all duration-300">
+            Master the Brew
+          </a>
+        </div>
+      </section>
+
+      <!-- Magazine Articles Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        
+        <!-- Left Column: Feature Articles -->
+        <div class="space-y-12">
+          
+          <!-- Hot & Cold Feature -->
+          <article class="group">
+            <h2 class="serif text-3xl font-bold mb-6 text-white">Flavor Sensations</h2>
+            <p class="drop-cap text-lg leading-relaxed mb-6 text-gray-200">
+              <span class="drop-cap">H</span>ot coffees ignite the palate with velvety warmth—bold espresso waves crashing with rich chocolate depths and caramel whispers that linger long after the sip. Switch to our cold brews for crystalline refreshment: iced lattes with silken milk foam, vanilla dreams, and crisp notes that awaken every sense in perfect harmony.
+            </p>
+          </article>
+
+          <!-- Mission Feature -->
+          <article>
+            <h2 class="serif text-3xl font-bold mb-6 text-white">Our Eternal Balance</h2>
+            <p class="text-lg leading-relaxed text-gray-200">
+              We craft brews that marry darkness and light, sourcing ethical beans roasted daily. Our vision: elevate coffee rituals into mindful art, building communities around sustainable perfection—one balanced cup at a time.
+            </p>
+          </article>
+
+        </div>
+
+        <!-- Right Column: Services & Standout -->
+        <div class="space-y-12 lg:pl-12">
+          
+          <!-- Standout Feature -->
+          <article class="group">
+            <h2 class="serif text-3xl font-bold mb-6 text-white">Why We Shine</h2>
+            <p class="drop-cap text-lg leading-relaxed text-gray-200">
+              <span class="drop-cap">B</span>lack – White redefines coffee through minimalist mastery: interactive brewing experiences, unmatched bean quality, and an ambiance where black intensity meets white serenity. No other café blends tradition with play like we do.
+            </p>
+          </article>
+
+          <!-- Services Feature -->
+          <article>
+            <h2 class="serif text-3xl font-bold mb-6 text-white">Complete Experience</h2>
+            <p class="text-lg leading-relaxed text-gray-200">
+              From espresso shots to frothy cappuccinos, iced delights to custom mochas—dine in, takeout, or master our barista game. Organic ingredients, dairy-free options, loyalty rewards (₱120–180), open 7AM daily, pet-friendly.
+            </p>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Pull Quote -->
+      <blockquote class="text-center py-16 px-8 border-y-2 border-gray-700 italic text-2xl text-gray-300 max-w-3xl mx-auto">
+        "Every cup is a canvas of contrast—bold, balanced, unforgettable."
+      </blockquote>
+
+    </div>
+  </main>
+
+</body>
+</html>

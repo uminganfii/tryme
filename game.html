@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience – Black – White Coffee Magazine</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { serif: "Playfair Display", } } }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+    }
+    .serif { font-family: 'Playfriend Display', serif; }
+    .magazine-hero {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.8) 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .ingredient {
+      cursor: grab;
+      user-select: none;
+    }
+    .ingredient:active { cursor: grabbing; }
+    #cup {
+      min-height: 160px;
+      border: 2px dashed rgba(255,255,255,0.3);
+      border-radius: 2rem 2rem 1rem 1rem;
+      padding: 20px;
+      text-align: center;
+    }
+    #cup p { font-size: 1.1rem; color: rgba(255,255,255,0.6); }
+    #cup.drag-over {
+      border-color: #fbbf24;
+      background: rgba(251,191,36,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Magazine Header -->
+  <header class="bg-black border-b border-gray-700 fixed w-full top-0 z-20">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center">
+        <img src="logo.webp" alt="Black – White Coffee Logo" class="h-12 w-auto mr-3 drop-shadow-lg">
+        <div>
+          <div class="font-bold text-xl tracking-tight text-white serif">ᜁᜆᜒᜋ᜔ & ᜉᜓᜆᜒ</div>
+          <div class="text-xs text-gray-400 uppercase tracking-wider">Coffrew</div>
+        </div>
+      </a>
+      <nav class="space-x-6 text-sm hidden md:flex">
+        <a href="index.html" class="text-white hover:text-gray-300">Home</a>
+        <a href="menu.html" class="text-white hover:text-gray-300">Menu</a>
+        <a href="game.html" class="text-white hover:text-gray-300 font-medium">Experience</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Game Magazine Spread -->
+  <main class="pt-28 pb-16 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8">
+
+      <!-- Game Left Panel – Ingredients & Order -->
+      <div class="lg:w-1/3 space-y-6">
+        <section class="magazine-hero rounded-2xl p-6 mb-6">
+          <h2 class="serif text-2xl font-bold mb-4 text-white">Order Details</h2>
+          <div id="order" class="text-lg text-white bg-white/5 border border-white/10 rounded-xl p-4 inline-block">
+            Order: <span id="drinkName">Loading...</span>
+          </div>
+          <div class="mt-4">
+            <p class="text-gray-300 text-sm mb-2">Required ingredients:</p>
+            <ul id="requiredIngredients" class="text-gray-200 text-sm list-disc list-inside space-y-1"></ul>
+          </div>
+        </section>
+
+        <section class="bg-gray-900 border border-gray-600 rounded-xl p-6">
+          <h3 class="text-lg font-semibold mb-4 text-white">Drag ingredients here:</h3>
+          <div id="ingredientList" class="grid grid-cols-1 gap-3">
+            <div class="ingredient bg-gradient-to-r from-amber-400 to-orange-500 text-black px-4 py-3 rounded-lg font-semibold shadow-md"
+                 draggable="true" data-ing="Espresso">
+              ☕ Espresso
+            </div>
+            <div class="ingredient bg-gradient-to-r from-white to-gray-100 text-black px-4 py-3 rounded-lg font-semibold shadow-md"
+                 draggable="true" data-ing="Milk">
+              🥛 Milk
+            </div>
+            <div class="ingredient bg-gradient-to-r from-amber-300 to-amber-500 text-black px-4 py-3 rounded-lg font-semibold shadow-md"
+                 draggable="true" data-ing="Sugar">
+              🍬 Sugar
+            </div>
+            <div class="ingredient bg-gradient-to-r from-white/70 to-gray-100/70 backdrop-blur-sm text-black px-4 py-3 rounded-lg font-semibold shadow-md"
+                 draggable="true" data-ing="Foam">
+              ☁️ Foam
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Game Right Part – Cup & Cupboard -->
+      <div class="lg:w-2/3">
+        <div id="game" class="bg-gray-900 border border-gray-600 rounded-2xl p-8 shadow-2xl">
+          <h2 class="text-xl font-semibold text-white mb-6">Brewing Station</h2>
+
+          <div id="cup" class="bg-white/10 rounded-3xl">
+            <p>Drag ingredients here to assemble the drink.</p>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-4 justify-center">
+            <button id="submitBtn" onclick="submitOrder()"
+                    class="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-10 py-3 rounded-xl font-semibold shadow-xl hover:from-emerald-400 hover:to-emerald-500 transition-transform hover:scale-105">
+              ✅ Serve Drink
+            </button>
+            <button id="clearBtn" onclick="clearCup()"
+                    class="bg-gradient-to-r from-rose-500 to-rose-600 text-white px-10 py-3 rounded-xl font-semibold shadow-xl hover:from-rose-400 hover:to-rose-500 transition-transform hover:scale-105">
+              🗑️ Clear Cup
+            </button>
+          </div>
+
+          <div id="result" class="mt-6 text-2xl font-bold"></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // Recipes
+    const recipes = [
+      { name: "Latte", ingredients: ["Espresso", "Milk"] },
+      { name: "Cappuccino", ingredients: ["Espresso", "Milk", "Foam"] },
+      { name: "Espresso Shot", ingredients: ["Espresso"] },
+      { name: "Sweet Coffee", ingredients: ["Espresso", "Sugar"] }
+    ];
+
+    let currentOrder = {};
+    let playerSelection = [];
+
+    // Generate a random order
+    function newOrder() {
+      currentOrder = recipes[Math.floor(Math.random() * recipes.length)];
+      document.getElementById("drinkName").textContent = currentOrder.name;
+      
+      // Show required ingredients
+      const ul = document.getElementById("requiredIngredients");
+      ul.innerHTML = currentOrder.ingredients.map(ing => `<li>${ing}</li>`).join("");
+
+      playerSelection = [];
+      document.getElementById("cup").innerHTML = "<p>Drag ingredients here to assemble the drink.</p>";
+      document.getElementById("result").innerHTML = "";
+      document.getElementById("submitBtn").innerHTML = "✅ Serve Drink";
+    }
+
+    // Drag‑and‑drop setup
+    const cup = document.getElementById("cup");
+    const ingredients = document.querySelectorAll(".ingredient");
+
+    ingredients.forEach(ing => {
+      ing.addEventListener("dragstart", ev => {
+        ev.dataTransfer.setData("text/plain", ev.target.dataset.ing);
+      });
+    });
+
+    cup.addEventListener("dragover", ev => {
+      ev.preventDefault();
+      cup.classList.add("drag-over");
+    });
+
+    cup.addEventListener("dragleave", ev => {
+      cup.classList.remove("drag-over");
+    });
+
+    cup.addEventListener("drop", ev => {
+      ev.preventDefault();
+      cup.classList.remove("drag-over");
+      const ingredient = ev.dataTransfer.getData("text/plain");
+      if (!ingredient) return;
+
+      // Append to cup display
+      const span = document.createElement("span");
+      span.className = "inline-block bg-white/10 px-4 py-2 rounded-lg text-sm mr-2 mb-2";
+      span.textContent = ingredient;
+      if (cup.children.length === 1 && cup.firstElementChild.tagName === "P") {
+        cup.innerHTML = "";
+      }
+      cup.appendChild(span);
+
+      // Push to selection
+      playerSelection.push(ingredient);
+    });
+
+    // Submit order
+    function submitOrder() {
+      const sortedPlayer = playerSelection.slice().sort();
+      const sortedRecipe = currentOrder.ingredients.slice().sort();
+
+      const correct = arraysEqual(sortedPlayer, sortedRecipe);
+
+      if (correct) {
+        document.getElementById("result").innerHTML =
+          "✅ <strong>Perfect!</strong> Customer is happy!";
+        document.getElementById("submitBtn").innerHTML = "🟩 Next Order";
+      } else {
+        document.getElementById("result").innerHTML =
+           "❌ <strong>Wrong drink!</strong> Try again.";
+        document.getElementById("submitBtn").innerHTML = "🔴 Try Again";
+      }
+
+      setTimeout(() => {
+        newOrder();
+      }, 1500);
+    }
+
+    // Clear cup
+    function clearCup() {
+      playerSelection = [];
+      document.getElementById("cup").innerHTML = "<p>Drag ingredients here to assemble the drink.</p>";
+      document.getElementById("result").innerHTML = "";
+    }
+
+    // Array comparison
+    function arraysEqual(a, b) {
+      return a.length === b.length && a.every((val, index) => val === b[index]);
+    }
+
+    // Start first order
+    newOrder();
+  </script>
+</body>
+</html>

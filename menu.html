@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu – Black – White Coffee Magazine</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+    }
+    .serif { font-family: 'Playfair Display', serif; }
+    .magazine-hero {
+      background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0.8) 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Magazine Header -->
+  <header class="bg-black border-b border-gray-700 fixed w-full top-0 z-20">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center">
+        <img src="logo.webp" alt="Black – White Coffee Logo" class="h-12 w-auto mr-3 drop-shadow-lg">
+        <div>
+          <div class="font-bold text-xl tracking-tight text-white serif">ᜁᜆᜒᜋ᜔ & ᜉᜓᜆᜒ</div>
+          <div class="text-xs text-gray-400 uppercase tracking-wider">Coffrew</div>
+        </div>
+      </a>
+      <nav class="space-x-6 text-sm hidden md:flex">
+        <a href="index.html" class="text-white hover:text-gray-300">Home</a>
+        <a href="menu.html" class="text-white hover:text-gray-300 font-medium">Menu</a>
+        <a href="game.html" class="text-white hover:text-gray-300">Experience</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Menu Magazine Spread -->
+  <main class="pt-28 pb-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- Hero -->
+      <section class="magazine-hero rounded-2xl p-12 mb-16 text-center shadow-2xl">
+        <h1 class="serif text-5xl md:text-6xl font-bold mb-6">The Menu</h1>
+        <p class="text-xl text-gray-300 italic max-w-2xl mx-auto">
+          Masterpieces of balance in every cup.
+        </p>
+      </section>
+
+      <!-- Menu Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <article class="border border-gray-600 rounded-xl p-8 bg-gray-900/30 hover:bg-gray-900/50 transition-all">
+          <h3 class="serif text-2xl font-bold mb-4 text-white">Classic Black</h3>
+          <p class="drop-cap text-lg leading-relaxed mb-4 text-gray-200">
+            <span class="drop-cap">I</span>ntense espresso shot—pure, unadulterated boldness that awakens the senses with its deep, lingering roast.
+          </p>
+          <div class="text-2xl font-bold text-white">₱120</div>
+        </article>
+
+        <article class="border border-gray-600 rounded-xl p-8 bg-gray-900/30 hover:bg-gray-900/50 transition-all">
+          <h3 class="serif text-2xl font-bold mb-4 text-white">Noir Mocha</h3>
+          <p class="drop-cap text-lg leading-relaxed mb-4 text-gray-200">
+            <span class="drop-cap">E</span>spresso married with dark chocolate, crowned by velvety whipped cream—a decadent symphony.
+          </p>
+          <div class="text-2xl font-bold text-white">₱180</div>
+        </article>
+
+        <article class="border border-gray-600 rounded-xl p-8 bg-gray-900/30 hover:bg-gray-900/50 transition-all">
+          <h3 class="serif text-2xl font-bold mb-4 text-white">White Cloud Latte</h3>
+          <p class="drop-cap text-lg leading-relaxed mb-4 text-gray-200">
+            <span class="drop-cap">C</span>reamy espresso enveloped in steamed milk, kissed with vanilla—a cloud of pure comfort.
+          </p>
+          <div class="text-2xl font-bold text-white">₱160</div>
+        </article>
+
+        <article class="border border-gray-600 rounded-xl p-8 bg-gray-900/30 hover:bg-gray-900/50 transition-all">
+          <h3 class="serif text-2xl font-bold mb-4 text-white">Black & White Cappuccino</h3>
+          <p class="drop-cap text-lg leading-relaxed mb-4 text-gray-200">
+            <span class="drop-cap">E</span>spresso capped with thick foam, dusted with cocoa—where opposites embrace perfectly.
+          </p>
+          <div class="text-2xl font-bold text-white">₱170</div>
+        </article>
+
+        <article class="border border-gray-600 rounded-xl p-8 bg-gray-900/30 hover:bg-gray-900/50 transition-all md:col-span-2">
+          <h3 class="serif text-2xl font-bold mb-4 text-white">Monochrome Cold Brew</h3>
+          <p class="drop-cap text-lg leading-relaxed mb-4 text-gray-200">
+            <span class="drop-cap">S</span>mooth iced coffee with a splash of milk and caramel whisper—refreshment in perfect monochrome.
+          </p>
+          <div class="text-2xl font-bold text-white">₱150</div>
+        </article>
+
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>
